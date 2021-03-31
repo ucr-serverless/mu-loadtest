@@ -18,7 +18,7 @@ start = Date.now();
 
 const options = {
     url: 'https://www.google.com',
-    maxRequests: 2000,
+    maxRequests: 200,
     // starting rps
     requestsPerSecond: 0.5,
     concurrency: 2,
@@ -36,13 +36,14 @@ const options = {
             return rps[rps.length - 1];
         }
     },
-    statusCallback: statusCallback,
+    // statusCallback: statusCallback,
 };
 
-loadtest.loadTest(options, function (error) {
+loadtest.loadTest(options, function (error, result) {
     if (error) {
         return console.error('Got an error: %s', error);
     }
+    console.log(result);
     console.log('Tests run successfully');
 });
 
