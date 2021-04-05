@@ -17,15 +17,18 @@ index = 0;
 start = Date.now();
 
 const options = {
-    url: 'https://www.google.com',
-    maxRequests: 200,
+    // TODO: Fetch Ingress host and port dynamically instead of using static values
+    url: 'http://198.22.255.68:32528?sleep=1000',
+    maxRequests: rps.reduce((a, b) => a + b, 0)*rpsInterval,
+    headers: {'Host':'autoscale-go.default.example.com'},
     // starting rps
     requestsPerSecond: 0.5,
-    concurrency: 2,
+    concurrency: 10,
     /**
      * GWU:Custom parameters
      */
     rpsInterval,
+    agentKeepAlive: true,
     updateRPSCallback() {
         console.log("callback called");
         if (index < rps.length) {
