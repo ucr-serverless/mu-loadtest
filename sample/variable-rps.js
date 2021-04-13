@@ -20,30 +20,16 @@ const options = {
     url: 'http://localhost:8080',
     maxRequests: 10000,
     // headers: { 'Host': 'autoscale-go.default.example.com' },
-    // starting rps
-    requestsPerSecond: 200,
-    concurrency: 1,
-
+    
+    // starting rps can be an array or a single value
+    requestsPerSecond: [400, 600, 800, 1200],
+    concurrency: 10,
+    debug:true,
     /**
      * GWU:Custom parameters
      */
     rpsInterval,
     agentKeepAlive: true,
-    // first option which uses the last value in rps array once it reaches the end. Use whatever version required for tests
-    // updateRPSCallback() {
-    //     // console.log("callback called");
-    //     if (index < rps.length) {
-    //         return rps[index++];
-    //     }
-    //     // if the index >= than length of array select the last index
-    //     else {
-    //         return rps[rps.length - 1];
-    //     }
-    // },
-    // 2nd option which cycles through the rps array once it reaches the end
-    updateRPSCallback() {
-        return rps[index++ % rps.length];
-    },
 };
 
 loadtest.loadTest(options, function (error, result) {
