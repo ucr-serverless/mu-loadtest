@@ -31,11 +31,13 @@ For access to the API just add package `loadtest` to your `package.json` devDepe
 }
 ```
 
+
+
 ### Compatibility
 
-Versions 5 and later should be used at least with Node.js v10 or later:
+Versions 5 and later should be used at least with Node.js v12 or later:
 
-* Node.js v10 or later: ^5.0.0
+* Node.js v12  or later: ^5.0.0
 * Node.js v8 or later: 4.x.y.
 * Node.js v6 or earlier: ^3.1.0.
 
@@ -48,7 +50,7 @@ Why use `loadtest` instead of any other of the available tools, notably Apache `
 
 Run as a script to load test a URL:
 
-    $ loadtest [-n requests] [-c concurrency] [-k] URL
+    $ loadtest [-n requests] [-c concurrency] [-k] --url URL
 
 The URL can be "http://", "https://" or "ws://".
 Set the max number of requests with `-n`, and the desired level of concurrency with the `-c` parameter.
