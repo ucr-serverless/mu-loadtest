@@ -19,7 +19,7 @@ const options = {
     // TODO: Fetch Ingress host and port dynamically instead of using static values
     url: 'http://localhost:8080',
     maxRequests: 10000,
-    // headers: { 'Host': 'autoscale-go.default.example.com' },
+    headers: { 'Host': 'autoscale-go.default.example.com' },
     
     // starting rps can be an array or a single value
     requestsPerSecond: [400, 600, 800, 1200],
